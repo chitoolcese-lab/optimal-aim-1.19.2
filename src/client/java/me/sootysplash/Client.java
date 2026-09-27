@@ -12,10 +12,9 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.boss.dragon.EnderDragonEntity;
 import net.minecraft.entity.boss.dragon.EnderDragonPart;
 import net.minecraft.util.math.Box;
-import net.minecraft.util.math.Matrix4f;
-import net.minecraft.util.math.Quaternion;
+import net.minecraft.util.math.RotationAxis;
 import net.minecraft.util.math.Vec3d;
-import net.minecraft.util.math.Vec3f;
+import org.joml.Matrix4f;
 import org.lwjgl.opengl.GL11;
 
 import java.awt.*;
@@ -47,8 +46,8 @@ public class Client implements ClientModInitializer {
 
             Camera cam = context.camera();
             MatrixStack matstack = new MatrixStack();
-            matstack.multiply(Vec3f.POSITIVE_X.getDegreesQuaternion(cam.getPitch()));
-            matstack.multiply(Vec3f.POSITIVE_Y.getDegreesQuaternion(cam.getYaw() + 180.0F));
+            matstack.multiply(RotationAxis.POSITIVE_X.rotationDegrees(cam.getPitch()));
+            matstack.multiply(RotationAxis.POSITIVE_Y.rotationDegrees(cam.getYaw() + 180.0F));
 
             double cubesize = config.size / 5;
 
@@ -185,4 +184,4 @@ public class Client implements ClientModInitializer {
         amount = Math.abs(wrapDegrees(amount - mc.player.getYaw()));
         return amount;
     }
-              }
+}
