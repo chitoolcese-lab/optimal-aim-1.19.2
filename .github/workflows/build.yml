@@ -23,5 +23,5 @@ jobs:
 
       - uses: actions/upload-artifact@v4
         with:
-          name: optimalaim-1.19.2
+          name: optimalaim-1.19.4
           path: build/libs/*.jar
