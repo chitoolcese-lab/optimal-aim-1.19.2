@@ -106,7 +106,7 @@ public class Client implements ClientModInitializer {
             Tessellator tessy = Tessellator.getInstance();
             BufferBuilder buffy = tessy.getBuffer();
 
-            RenderSystem.setShader(GameRenderer::getPositionColorShader);
+            RenderSystem.setShader(GameRenderer::getPositionColorProgram);
             RenderSystem.setShaderColor(1f, 1f, 1f, 1f);
 
             RenderSystem.enableBlend();
